@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 
 export function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,7 +16,7 @@ export function Header() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -36,21 +36,30 @@ export function Header() {
             <Link href="/tools" className="text-[#2563eb] dark:text-[#60A5FA] font-bold border-b-2 border-[#2563eb] dark:border-[#60A5FA] pb-1 text-sm transition-colors duration-150">
               Tools
             </Link>
-            <Link href="/tools/image-compressor" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-compressor" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
               Compress
             </Link>
-            <Link href="/tools/image-converter" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-converter" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
               Convert
             </Link>
-            <Link href="/tools/image-resizer" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-resizer" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
               Resize
+            </Link>
+            <Link href="/tools/image-cropper" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+              Crop
+            </Link>
+            <Link href="/tools/image-rotator" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+              Rotate
+            </Link>
+            <Link href="/tools/image-inspector" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+              Inspect
             </Link>
           </nav>
         </div>
 
         {/* Search, Pill Badge & Trailing Actions */}
         <div className="flex items-center gap-2 md:gap-4">
-          <button className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-[#DCE3ED] dark:border-[#334155] bg-[#F1F5F9] dark:bg-[#1B2A40] text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] text-sm transition-all duration-150" type="button">
+          <button className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-[#DCE3ED] dark:border-[#334155] bg-[#F1F5F9] dark:bg-[#1B2A40] text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] text-sm transition-all duration-150" type="button">
             <span className="material-symbols-outlined text-[18px]">search</span>
             <span>Search tools...</span>
             <kbd className="px-1.5 py-0.5 rounded border border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] text-[#64748B] dark:text-[#CBD5E1] text-[11px] font-mono leading-none">⌘K</kbd>
@@ -61,15 +70,15 @@ export function Header() {
             <span>On-device processing</span>
           </div>
 
-          <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155] text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40] transition-colors duration-150" type="button">
+          <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155] text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40] transition-colors duration-150" type="button">
             {mounted ? (
-              <span className="material-symbols-outlined text-[20px]">{theme === "dark" ? "light_mode" : "contrast"}</span>
+              <span className="material-symbols-outlined text-[20px]">{resolvedTheme === "dark" ? "light_mode" : "dark_mode"}</span>
             ) : (
-              <span className="material-symbols-outlined text-[20px]">contrast</span>
+              <span className="material-symbols-outlined text-[20px]">dark_mode</span>
             )}
           </button>
           
-          <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle mobile menu" className="md:hidden p-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155] text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40] transition-colors duration-150" type="button">
+          <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle mobile menu" className="md:hidden p-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155] text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40] transition-colors duration-150" type="button">
             <span className="material-symbols-outlined text-[20px]">{menuOpen ? "close" : "menu"}</span>
           </button>
         </div>
