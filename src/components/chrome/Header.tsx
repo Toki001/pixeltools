@@ -103,11 +103,6 @@ export function Header() {
             <span>Search tools...</span>
             <kbd className="px-1.5 py-0.5 rounded border border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] text-[#64748B] dark:text-[#CBD5E1] text-[11px] font-mono leading-none">⌘K</kbd>
           </button>
-          
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] dark:bg-opacity-10 border border-[#DCE3ED] dark:border-[#334155] text-sm text-[#2563eb] dark:text-[#60A5FA]">
-            <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse"></span>
-            <span>On-device processing</span>
-          </div>
 
           <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155] text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40] transition-colors duration-150" type="button">
             {mounted ? (
