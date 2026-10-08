@@ -1,28 +1,51 @@
 import { WorkerMessage, WorkerResponse } from './protocol';
 
-// Basic worker setup
 self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
   const msg = e.data;
   
   if (msg.type === 'PROCESS_REQUEST') {
     try {
-      // In M4+ we will parse payload, create ImageBitmap, OffscreenCanvas, etc.
-      // For now, just return success with a mock or echo payload for tests
+      const { file, options } = msg.payload;
+      
+      // Load image into an ImageBitmap
+      const bitmap = await createImageBitmap(file);
+      const width = bitmap.width;
+      const height = bitmap.height;
+
+      // Create an OffscreenCanvas
+      const canvas = new OffscreenCanvas(width, height);
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        throw new Error('Failed to get 2d context for OffscreenCanvas');
+      }
+
+      // Draw the image
+      ctx.drawImage(bitmap, 0, 0, width, height);
+
+      // Re-encode
+      const blob = await canvas.convertToBlob({
+        type: options.type,
+        quality: options.quality
+      });
+      
+      // Release bitmap memory
+      bitmap.close();
+
       const response: WorkerResponse = {
         type: 'PROCESS_SUCCESS',
         id: msg.id,
-        payload: { processed: true }
+        payload: { blob, dimensions: { width, height } }
       };
+      
       self.postMessage(response);
-    } catch (error: any) {
+    } catch (error: unknown) {
       self.postMessage({
         type: 'PROCESS_ERROR',
         id: msg.id,
-        error: error.message || 'Unknown error'
+        error: error instanceof Error ? error.message : 'Unknown processing error'
       });
     }
   } else if (msg.type === 'CANCEL_REQUEST') {
-    // Handle cancellation logic (e.g. interrupt loop)
     console.log(`Cancelled job ${msg.id}`);
   }
 };

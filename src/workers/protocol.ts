@@ -1,18 +1,20 @@
 export interface ProcessJob {
   id: string;
-  file: File;
-  options: any; // We'll type this strictly in M4+ depending on the tool
+  file: File | Blob;
+  options: CompressOptions;
 }
 
-export interface WorkerProtocol {
-  processImage(job: ProcessJob): Promise<{ blob: Blob, dimensions: { width: number, height: number } }>;
+export interface CompressOptions {
+  type: 'image/webp' | 'image/jpeg' | 'image/png';
+  quality: number; // 0 to 1
+  keepOriginalDimensions?: boolean;
 }
 
 export type WorkerMessage = 
-  | { type: 'PROCESS_REQUEST'; id: string; payload: any }
+  | { type: 'PROCESS_REQUEST'; id: string; payload: ProcessJob }
   | { type: 'CANCEL_REQUEST'; id: string };
 
 export type WorkerResponse = 
-  | { type: 'PROCESS_SUCCESS'; id: string; payload: any }
+  | { type: 'PROCESS_SUCCESS'; id: string; payload: { blob: Blob, dimensions: { width: number, height: number } } }
   | { type: 'PROCESS_ERROR'; id: string; error: string }
   | { type: 'PROGRESS'; id: string; progress: number };

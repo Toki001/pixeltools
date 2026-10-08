@@ -34,3 +34,10 @@
 - **Tests Run**: `npm run typecheck`, `npm run lint`, and `npm run build` executed successfully. Layout verified visually.
 - **Commit SHA**: ec2ca9c
 - **Next Action**: M3 - Local Image Engine
+
+## M3 — Local Image Engine
+- **Date**: 2026-10-08
+- **Change Summary**: Implemented secure client-side image processing foundation. Created image validation (`validate.ts`) with MIME/magic-byte checks and size limits. Established typed processing contracts (`contracts.ts`). Structured a Web Worker setup (`image.worker.ts`, `protocol.ts`, `client.ts`) for non-blocking canvas processing. Included `downloadBlob` helper.
+- **Tests Run**: Unit tests written for file validation using Vitest. `npm run test`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: c1c2ef8
+- **Next Action**: M4 - Compressor

@@ -1,8 +1,8 @@
-import { WorkerMessage, WorkerResponse } from './protocol';
+import { WorkerResponse } from './protocol';
 
 export class ImageWorkerClient {
   private worker: Worker;
-  private pendingJobs: Map<string, { resolve: (res: any) => void; reject: (err: any) => void }>;
+  private pendingJobs: Map<string, { resolve: (res: unknown) => void; reject: (err: unknown) => void }>;
 
   constructor() {
     this.worker = new Worker(new URL('./image.worker.ts', import.meta.url), { type: 'module' });
@@ -24,11 +24,11 @@ export class ImageWorkerClient {
     };
   }
 
-  async process(payload: any): Promise<any> {
+  async process<TReq, TRes>(payload: TReq): Promise<TRes> {
     const id = crypto.randomUUID();
     return new Promise((resolve, reject) => {
-      this.pendingJobs.set(id, { resolve, reject });
-      const msg: WorkerMessage = { type: 'PROCESS_REQUEST', id, payload };
+      this.pendingJobs.set(id, { resolve: resolve as (res: unknown) => void, reject });
+      const msg = { type: 'PROCESS_REQUEST', id, payload };
       this.worker.postMessage(msg);
     });
   }
