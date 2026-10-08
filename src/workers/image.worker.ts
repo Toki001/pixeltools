@@ -9,8 +9,8 @@ self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
       
       // Load image into an ImageBitmap
       const bitmap = await createImageBitmap(file);
-      const width = bitmap.width;
-      const height = bitmap.height;
+      const width = options.width || bitmap.width;
+      const height = options.height || bitmap.height;
 
       // Create an OffscreenCanvas
       const canvas = new OffscreenCanvas(width, height);
@@ -18,6 +18,10 @@ self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
       if (!ctx) {
         throw new Error('Failed to get 2d context for OffscreenCanvas');
       }
+      
+      // High quality smoothing
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
 
       // If a background color is provided (e.g., when converting PNG to JPEG), fill it first
       if (options.backgroundColor) {

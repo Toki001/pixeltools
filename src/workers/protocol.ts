@@ -9,6 +9,8 @@ export interface CompressOptions {
   quality: number; // 0 to 1
   keepOriginalDimensions?: boolean;
   backgroundColor?: string;
+  width?: number;
+  height?: number;
 }
 
 export type WorkerMessage = 

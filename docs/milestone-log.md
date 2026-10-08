@@ -48,3 +48,10 @@
 - **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: 9ece420
 - **Next Action**: M5 - Converter
+
+## M5 — Image Converter
+- **Date**: 2026-10-08
+- **Change Summary**: Implement `ConverterClient.tsx` featuring cross-format conversion capabilities (WebP, JPEG, PNG). Included a dynamic transparency preview grid and added background flattening capability within the `image.worker.ts` so alpha channels correctly map to solid colors when targeting JPEG.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: cb82d43
+- **Next Action**: M6 - Resizer
