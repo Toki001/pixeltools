@@ -20,3 +20,17 @@
 - **Tests Run**: N/A (Documentation and reference setup only).
 - **Commit SHA**: d4729be
 - **Next Action**: M1 - Foundation
+
+## M1 — Foundation
+- **Date**: 2026-10-08
+- **Change Summary**: Next.js App Router TS scaffold initialized. Tailwind configured with design tokens from Stitch exports. Inter font and Material Symbols imported in layout. Test suites (Vitest, Playwright) and directories created. Configuration files (`site.ts`, `tools.ts`, `limits.ts`) added.
+- **Tests Run**: `npm run typecheck`, `npm run lint`, and `npm run build` executed successfully.
+- **Commit SHA**: ba81d1a
+- **Next Action**: M2 - Responsive Website Foundation
+
+## M2 — Layout and navigation
+- **Date**: 2026-10-08
+- **Change Summary**: Built the responsive homepage, `/tools` directory, and functional navigation (Header/Footer). Included mobile menu, theme toggle, and static page shells for all MVP tools and informational pages.
+- **Tests Run**: `npm run typecheck`, `npm run lint`, and `npm run build` executed successfully. Layout verified visually.
+- **Commit SHA**: (To be filled)
+- **Next Action**: M3 - Local Image Engine
