@@ -18,5 +18,5 @@
   12. `pixeltools_edge_cases_developer_handoff_desktop` -> Error handling/state reference
 - **Limitations / Notes**: Verified that all `screen.png` files in the Stitch export are actually text files containing `<FILE Image failed to fetch>` and are not valid images. Screenshots of the reference HTML files will need to be captured using browser automation in the future. `AGENTS.md` and `CODEX.md` are present.
 - **Tests Run**: N/A (Documentation and reference setup only).
-- **Commit SHA**: (To be filled)
+- **Commit SHA**: d4729be
 - **Next Action**: M1 - Foundation
