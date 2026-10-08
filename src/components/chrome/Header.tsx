@@ -52,7 +52,10 @@ export function Header() {
     return "text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent";
   };
 
-  const filteredTools = SEARCH_TOOLS.filter(t => t.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredTools = SEARCH_TOOLS.filter(t => 
+    t.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    t.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
