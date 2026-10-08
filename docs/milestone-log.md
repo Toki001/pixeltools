@@ -62,3 +62,10 @@
 - **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: e7b8acb
 - **Next Action**: M7 - Cropper
+
+## M7 — Image Cropper
+- **Date**: 2026-10-08
+- **Change Summary**: Built `CropperClient.tsx` using `react-image-crop` for interactive crop selection. Extended the worker protocol (`image.worker.ts`) to handle `options.crop` via `drawImage` source mapping for true pixel-perfect local extraction.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: 62ea5f7
+- **Next Action**: M8 - Rotator

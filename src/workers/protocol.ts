@@ -12,6 +12,9 @@ export interface CompressOptions {
   width?: number;
   height?: number;
   crop?: { x: number, y: number, width: number, height: number };
+  rotate?: number; // degrees
+  flipHorizontal?: boolean;
+  flipVertical?: boolean;
 }
 
 export type WorkerMessage = 
