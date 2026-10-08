@@ -256,9 +256,33 @@ export function CropperClient() {
         {/* LEFT COLUMN */}
         <section className="lg:col-span-8 flex flex-col gap-4">
           <div className="bg-white dark:bg-[#121C2D] rounded-2xl border border-[#DCE3ED] dark:border-[#334155] p-3 shadow-sm flex flex-col gap-3">
-            <div className="flex items-center gap-2 bg-[#F1F5F9] dark:bg-[#1B2A40] w-fit px-3 py-1.5 rounded-lg border border-[#DCE3ED] dark:border-[#334155]">
-              <span className="material-symbols-outlined text-[16px] text-[#2563eb] dark:text-[#60A5FA]">crop_16_9</span>
-              <span className="text-xs font-semibold text-[#131b2e] dark:text-[#F8FAFC]">Aspect: {getAspectStr(aspect)}</span>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#F1F5F9] dark:bg-[#1B2A40] w-full px-3 py-2 rounded-lg border border-[#DCE3ED] dark:border-[#334155]">
+              <div className="flex items-center gap-2">
+                <button className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-[#121C2D] border border-[#2563eb] rounded-lg shadow-sm">
+                  <span className="material-symbols-outlined text-[16px] text-[#2563eb] dark:text-[#60A5FA]">crop_16_9</span>
+                  <span className="text-xs font-semibold text-[#2563eb] dark:text-[#60A5FA]">Aspect: {getAspectStr(aspect)}</span>
+                </button>
+                <div className="w-px h-6 bg-[#DCE3ED] dark:bg-[#334155] mx-1"></div>
+                <div className="flex items-center gap-1">
+                  <button className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#2563eb] bg-[#EFF6FF] dark:bg-[#1B2A40]/50">Rule of Thirds</button>
+                  <button className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#475569] dark:text-[#CBD5E1] hover:bg-[#E2E8F0] dark:hover:bg-[#334155]/50 transition-colors">Golden Ratio</button>
+                  <button className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#475569] dark:text-[#CBD5E1] hover:bg-[#E2E8F0] dark:hover:bg-[#334155]/50 transition-colors">Pixel Grid</button>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center bg-white dark:bg-[#121C2D] border border-[#DCE3ED] dark:border-[#334155] rounded-lg">
+                  <button className="px-2 py-1.5 text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC]"><span className="material-symbols-outlined text-[16px]">remove</span></button>
+                  <span className="text-xs px-2 font-mono text-[#131b2e] dark:text-[#F8FAFC]">100%</span>
+                  <button className="px-2 py-1.5 text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC]"><span className="material-symbols-outlined text-[16px]">add</span></button>
+                </div>
+                <button className="px-3 py-1.5 flex items-center gap-2 border border-[#DCE3ED] dark:border-[#334155] rounded-lg bg-white dark:bg-[#121C2D] text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC]">
+                  <span className="material-symbols-outlined text-[16px]">fit_screen</span>
+                  Fit to view
+                </button>
+                <button className="p-1.5 border border-[#DCE3ED] dark:border-[#334155] rounded-lg bg-white dark:bg-[#121C2D] text-[#475569] dark:text-[#CBD5E1] hover:text-[#131b2e] dark:hover:text-[#F8FAFC]">
+                  <span className="material-symbols-outlined text-[16px]">fullscreen</span>
+                </button>
+              </div>
             </div>
 
             <div className="relative bg-[#0B1220] border border-[#DCE3ED] dark:border-[#334155] rounded-xl overflow-hidden shadow-xs select-none bg-checkerboard min-h-[460px] flex items-center justify-center p-6">
