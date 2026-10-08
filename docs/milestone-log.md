@@ -69,3 +69,10 @@
 - **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: 62ea5f7
 - **Next Action**: M8 - Rotator
+
+## M8 — Image Rotator
+- **Date**: 2026-10-08
+- **Change Summary**: Built `RotatorClient.tsx` providing visual rotational and flip adjustments using CSS transforms. Extended the worker protocol (`image.worker.ts`) to calculate the correct rotated bounding box and apply contextual translations and scalings for accurate downloaded output.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: a0af188
+- **Next Action**: M9 - Inspector

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, SyntheticEvent } from "react";
 import Link from "next/link";
-import ReactCrop, { Crop, PixelCrop } from 'react-image-crop';
+import ReactCrop, { Crop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 import { validateImageFile } from "@/lib/image-engine/validate";
