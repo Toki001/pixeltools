@@ -280,7 +280,7 @@ export function CropperClient() {
 
               <ReactCrop
                 crop={crop}
-                onChange={(_, pc) => { setCrop(pc); setPercentCrop(pc); }}
+                onChange={(c, pc) => { setCrop(c); setPercentCrop(pc); }}
                 onComplete={(_, pc) => { setPercentCrop(pc); }}
                 aspect={aspect}
                 className="max-h-full max-w-full"
