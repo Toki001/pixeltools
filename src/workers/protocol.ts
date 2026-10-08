@@ -11,6 +11,7 @@ export interface CompressOptions {
   backgroundColor?: string;
   width?: number;
   height?: number;
+  crop?: { x: number, y: number, width: number, height: number };
 }
 
 export type WorkerMessage = 

@@ -55,3 +55,10 @@
 - **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: cb82d43
 - **Next Action**: M6 - Resizer
+
+## M6 — Image Resizer
+- **Date**: 2026-10-08
+- **Change Summary**: Built `ResizerClient.tsx` providing aspect ratio locking, percentage scale presets, and absolute pixel definitions. The local `image.worker.ts` leverages `OffscreenCanvas` with `imageSmoothingQuality = 'high'` to perform bicubic downsampling directly on the client side, outputting correctly sized artifacts.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: e7b8acb
+- **Next Action**: M7 - Cropper

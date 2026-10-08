@@ -9,8 +9,8 @@ self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
       
       // Load image into an ImageBitmap
       const bitmap = await createImageBitmap(file);
-      const width = options.width || bitmap.width;
-      const height = options.height || bitmap.height;
+      const width = options.width || (options.crop ? options.crop.width : bitmap.width);
+      const height = options.height || (options.crop ? options.crop.height : bitmap.height);
 
       // Create an OffscreenCanvas
       const canvas = new OffscreenCanvas(width, height);
@@ -30,7 +30,11 @@ self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
       }
 
       // Draw the image
-      ctx.drawImage(bitmap, 0, 0, width, height);
+      if (options.crop) {
+        ctx.drawImage(bitmap, options.crop.x, options.crop.y, options.crop.width, options.crop.height, 0, 0, width, height);
+      } else {
+        ctx.drawImage(bitmap, 0, 0, width, height);
+      }
 
       // Re-encode
       const blob = await canvas.convertToBlob({
