@@ -283,6 +283,7 @@ export function CropperClient() {
                 onChange={(c, pc) => { setCrop(c); setPercentCrop(pc); }}
                 onComplete={(_, pc) => { setPercentCrop(pc); }}
                 aspect={aspect}
+                ruleOfThirds={true}
                 className="max-h-full max-w-full"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
