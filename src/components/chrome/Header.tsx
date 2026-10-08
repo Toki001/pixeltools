@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 
 export function Header() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
