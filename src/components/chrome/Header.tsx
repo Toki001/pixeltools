@@ -94,6 +94,12 @@ export function Header() {
             <Link href="/tools/image-cropper" onClick={() => setMenuOpen(false)} className="text-[#475569] dark:text-[#CBD5E1] font-semibold text-base">
               Image Cropper
             </Link>
+            <Link href="/tools/image-rotator" onClick={() => setMenuOpen(false)} className="text-[#475569] dark:text-[#CBD5E1] font-semibold text-base">
+              Image Rotator
+            </Link>
+            <Link href="/tools/image-inspector" onClick={() => setMenuOpen(false)} className="text-[#475569] dark:text-[#CBD5E1] font-semibold text-base">
+              Image Inspector
+            </Link>
           </nav>
         </div>
       )}

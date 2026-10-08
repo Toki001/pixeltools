@@ -76,3 +76,10 @@
 - **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: a0af188
 - **Next Action**: M9 - Inspector
+
+## M9 — Image Inspector
+- **Date**: 2026-10-08
+- **Change Summary**: Built `InspectorClient.tsx` using `exifr` to safely extract EXIF camera metadata without server requests. Implemented a local `<canvas>` based pixel loupe to show hex/rgb values under the mouse cursor.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: c8e97fe
+- **Next Action**: M10 - Final Polish
