@@ -41,3 +41,10 @@
 - **Tests Run**: Unit tests written for file validation using Vitest. `npm run test`, `npm run typecheck`, and `npm run build` executed successfully.
 - **Commit SHA**: c1c2ef8
 - **Next Action**: M4 - Compressor
+
+## M4 — Image Compressor
+- **Date**: 2026-10-08
+- **Change Summary**: Complete real compressor implementation (`CompressorClient.tsx`) with a custom interactive before/after `Comparator.tsx` slider. The compressor correctly passes Blobs to the `image.worker.ts` for off-thread re-encoding into WebP, JPEG, or PNG formats at specified quality limits. Calculates and displays exact byte savings and percentage metrics.
+- **Tests Run**: `npm run lint`, `npm run typecheck`, and `npm run build` executed successfully.
+- **Commit SHA**: 9ece420
+- **Next Action**: M5 - Converter

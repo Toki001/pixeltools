@@ -8,6 +8,7 @@ export interface CompressOptions {
   type: 'image/webp' | 'image/jpeg' | 'image/png';
   quality: number; // 0 to 1
   keepOriginalDimensions?: boolean;
+  backgroundColor?: string;
 }
 
 export type WorkerMessage = 

@@ -19,6 +19,12 @@ self.onmessage = async (e: MessageEvent<WorkerMessage>) => {
         throw new Error('Failed to get 2d context for OffscreenCanvas');
       }
 
+      // If a background color is provided (e.g., when converting PNG to JPEG), fill it first
+      if (options.backgroundColor) {
+        ctx.fillStyle = options.backgroundColor;
+        ctx.fillRect(0, 0, width, height);
+      }
+
       // Draw the image
       ctx.drawImage(bitmap, 0, 0, width, height);
 
