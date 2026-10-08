@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 
 export function Header() {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname() || "";
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -17,6 +19,14 @@ export function Header() {
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
+
+  const getLinkClasses = (path: string) => {
+    const isActive = pathname === path || (path === "/tools" && pathname === "/tools");
+    if (isActive) {
+      return "text-[#2563eb] dark:text-[#60A5FA] font-bold border-b-2 border-[#2563eb] dark:border-[#60A5FA] pb-1 text-sm transition-colors duration-150";
+    }
+    return "text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150 border-b-2 border-transparent";
   };
 
   return (
@@ -33,25 +43,25 @@ export function Header() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/tools" className="text-[#2563eb] dark:text-[#60A5FA] font-bold border-b-2 border-[#2563eb] dark:border-[#60A5FA] pb-1 text-sm transition-colors duration-150">
+            <Link href="/tools" className={getLinkClasses("/tools")}>
               Tools
             </Link>
-            <Link href="/tools/image-compressor" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-compressor" className={getLinkClasses("/tools/image-compressor")}>
               Compress
             </Link>
-            <Link href="/tools/image-converter" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-converter" className={getLinkClasses("/tools/image-converter")}>
               Convert
             </Link>
-            <Link href="/tools/image-resizer" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-resizer" className={getLinkClasses("/tools/image-resizer")}>
               Resize
             </Link>
-            <Link href="/tools/image-cropper" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-cropper" className={getLinkClasses("/tools/image-cropper")}>
               Crop
             </Link>
-            <Link href="/tools/image-rotator" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-rotator" className={getLinkClasses("/tools/image-rotator")}>
               Rotate
             </Link>
-            <Link href="/tools/image-inspector" className="text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563eb] dark:hover:text-[#60A5FA] pb-1 text-sm font-semibold transition-colors duration-150">
+            <Link href="/tools/image-inspector" className={getLinkClasses("/tools/image-inspector")}>
               Inspect
             </Link>
           </nav>

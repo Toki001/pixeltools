@@ -271,7 +271,7 @@ export function CompressorClient() {
                   <button 
                     key={f.value}
                     onClick={() => setFormat(f.value as "image/webp" | "image/jpeg" | "image/png")}
-                    className={`flex flex-col items-start p-3 rounded-xl border-2 text-left transition-colors relative ${format === f.value ? 'border-[#2563eb] bg-[#EFF6FF] dark:bg-opacity-10' : 'border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40]'}`}
+                    className={`flex flex-col items-start p-3 rounded-xl border-2 text-left transition-colors relative ${format === f.value ? 'border-[#2563eb] bg-[#EFF6FF] dark:bg-[#1B2A40]' : 'border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40]'}`}
                   >
                     <div className="w-full flex items-center justify-between">
                       <span className={`text-sm font-bold ${format === f.value ? 'text-[#2563eb] dark:text-[#60A5FA]' : 'text-[#131b2e] dark:text-[#F8FAFC]'}`}>{f.label}</span>

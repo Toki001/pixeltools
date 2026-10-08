@@ -321,7 +321,7 @@ export function ConverterClient() {
                   <div 
                     key={f.id} 
                     onClick={() => setFormat(f.id as "image/webp" | "image/jpeg" | "image/png")}
-                    className={`relative flex items-start p-3 rounded-xl border-2 cursor-pointer transition-all ${format === f.id ? 'border-[#2563eb] bg-[#EFF6FF] dark:bg-opacity-10' : 'border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40]'}`}
+                    className={`relative flex items-start p-3 rounded-xl border-2 cursor-pointer transition-all ${format === f.id ? 'border-[#2563eb] bg-[#EFF6FF] dark:bg-[#1B2A40]' : 'border-[#DCE3ED] dark:border-[#334155] bg-white dark:bg-[#121C2D] hover:bg-[#F1F5F9] dark:hover:bg-[#1B2A40]'}`}
                   >
                     <input 
                       type="radio" 

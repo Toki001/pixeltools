@@ -115,6 +115,7 @@ export function Comparator({ originalUrl, originalSizeStr, processedUrl, process
           <img 
             src={processedUrl} 
             alt="Compressed" 
+            draggable={false}
             className="w-full h-full object-contain pointer-events-none select-none transition-transform duration-150"
             style={{ transform: `scale(${zoom})`, transformOrigin: 'center center' }}
           />
@@ -126,20 +127,19 @@ export function Comparator({ originalUrl, originalSizeStr, processedUrl, process
 
         {/* Foreground: Original Image (Clipped Left side) */}
         <div 
-          className="absolute inset-0 h-full overflow-hidden border-r-2 border-white shadow-2xl z-10 flex items-center justify-center" 
-          style={{ width: `${splitPosition}%` }}
+          className="absolute inset-0 w-full h-full flex items-center justify-center z-10" 
+          style={{ clipPath: `inset(0 ${100 - splitPosition}% 0 0)` }}
         >
-          <div className="absolute inset-0 h-full flex items-center justify-center" style={{ width: '100%', minWidth: '100%' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              ref={originalImgRef}
-              src={originalUrl} 
-              alt="Original" 
-              className="absolute h-full object-contain pointer-events-none select-none max-w-none transition-transform duration-150"
-              style={{ transform: `scale(${zoom})`, transformOrigin: 'center center' }}
-            />
-          </div>
-          <div className="absolute bottom-4 left-4 z-10 bg-[#131b2e]/80 text-white text-xs px-3 py-1.5 rounded-lg border border-white/20 flex items-center gap-1.5 shadow-sm font-mono">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            ref={originalImgRef}
+            src={originalUrl} 
+            alt="Original" 
+            draggable={false}
+            className="w-full h-full object-contain pointer-events-none select-none transition-transform duration-150"
+            style={{ transform: `scale(${zoom})`, transformOrigin: 'center center' }}
+          />
+          <div className="absolute bottom-4 left-4 z-10 bg-[#131b2e]/80 text-white text-xs px-3 py-1.5 rounded-lg border border-white/20 flex items-center gap-1.5 shadow-sm font-mono" style={{ transform: `translateX(${splitPosition < 20 ? '-200%' : '0'})`, transition: 'transform 0.2s' }}>
             <span className="w-2 h-2 rounded-full bg-[#64748B]"></span>
             <span>Original ({originalSizeStr})</span>
           </div>
