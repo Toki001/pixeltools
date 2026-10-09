@@ -42,3 +42,14 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Untracked files
+references/
+playwright-report/
+CODEX.md
+CODEX_START_PROMPT.md
+STARTING_FILE_STRUCTURE.md
+playwright.config.ts
+AGENTS.md
+test-results/
+tests/
