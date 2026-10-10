@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { ConverterClient } from "@/components/tools/ConverterClient";
+
+export const metadata: Metadata = {
+  title: "Image Converter",
+  description: "Convert images between JPEG, PNG, and WebP formats.",
+};
 
 export default function ImageConverterPage() {
   return (

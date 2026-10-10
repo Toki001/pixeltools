@@ -11,8 +11,39 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PixelTools | Free, privacy-first image utilities",
-  description: "Every image tool you need, in one place.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://pixeltools.example.com"),
+  title: {
+    default: "PixelTools | Free, privacy-first image utilities",
+    template: "%s | PixelTools",
+  },
+  description: "Every image tool you need, in one place. 100% On-Device Privacy. Your photos never leave your browser window.",
+  openGraph: {
+    title: "PixelTools | Free, privacy-first image utilities",
+    description: "Every image tool you need, in one place. 100% On-Device Privacy.",
+    url: "/",
+    siteName: "PixelTools",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PixelTools | Free, privacy-first image utilities",
+    description: "Every image tool you need, in one place. 100% On-Device Privacy.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "google-site-verification-code",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

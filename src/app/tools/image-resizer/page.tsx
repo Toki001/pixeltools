@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { ResizerClient } from "@/components/tools/ResizerClient";
+
+export const metadata: Metadata = {
+  title: "Image Resizer",
+  description: "Resize images by exact pixel dimensions or percentage.",
+};
 
 export default function ImageResizerPage() {
   return (

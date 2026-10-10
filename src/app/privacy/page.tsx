@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Manifesto",
+  description: "100% On-Device Privacy. Your photos never leave your browser window.",
+};
+
 export default function PrivacyPage() {
   return (
     <main className="w-full max-w-[800px] mx-auto px-6 py-12 space-y-8">

@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { InspectorClient } from "@/components/tools/InspectorClient";
+
+export const metadata: Metadata = {
+  title: "Image Inspector",
+  description: "View image metadata, dimensions, and color profiles.",
+};
 
 export default function ImageInspectorPage() {
   return (

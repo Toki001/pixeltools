@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn more about PixelTools, the privacy-first, client-side image utility suite.",
+};
+
 export default function AboutPage() {
   return (
     <main className="w-full max-w-[800px] mx-auto px-6 py-12 space-y-8">

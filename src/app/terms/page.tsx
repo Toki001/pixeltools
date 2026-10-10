@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms of Service for PixelTools.",
+};
+
 export default function TermsPage() {
   return (
     <main className="w-full max-w-[800px] mx-auto px-6 py-12 space-y-8">

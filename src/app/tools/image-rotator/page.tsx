@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { RotatorClient } from "@/components/tools/RotatorClient";
+
+export const metadata: Metadata = {
+  title: "Rotate & Flip",
+  description: "Rotate images and flip them horizontally or vertically.",
+};
 
 export default function ImageRotatorPage() {
   return (
